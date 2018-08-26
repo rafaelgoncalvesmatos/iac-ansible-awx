@@ -1,2 +1,46 @@
 ---
 # tasks file for roles/docker
+- name: Atualizacao do Sistema
+  yum:
+    name: "*"
+    state: "latest"
+    update_cache: "yes"
+
+- name: Adiciona chave GPG
+  rpm_key: 
+    key: "{{ docker.gpg_key }}"
+    state: "present"
+
+- name: Adiciona o repositorio docker
+  get_url:
+    url: "{{ docker.repo_url }}"
+    dest: "{{ docker.repo_path }}"
+    mode: "0644"
+
+- name: Instalacao do docker 
+  yum:
+    name: "{{ item }}" 
+    state: "installed"
+    update_cache: "yes"
+  with_items: "{{ docker.packages }}"
+
+- name: Instalacao do pip
+  easy_install:
+    name: pip
+    state: latest
+
+- name: Instalacao do python
+  pip:
+    name: "{{ item }}"
+  with_items: "{{ docker.pip }}"
+
+- name: Desativacao do SELINUX
+  selinux:
+    policy: targeted
+    state: permissive
+
+- name: Inicia docker e habilita start automatico
+  service:
+    name: "docker"
+    state: "started"
+    enabled: "yes"  
