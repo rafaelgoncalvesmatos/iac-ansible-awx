@@ -1,2 +1,32 @@
 ---
 # tasks file for roles/awx
+- name: Instala o pacote Git
+  yum:
+    name: "{{ item }}"
+    state: "installed"
+    update_cache: "yes"
+  with_items: "{{ awx.packages }}"
+
+# Instalacao dos pacotes via pip
+
+- name: Instalacao dos pacotes via python
+  pip: 
+    name: "{{ item }}"
+  with_items: "{{ awx.pip }}"
+
+
+# Download do repositorios Ansible AWX
+
+- name: Download do repositorio AWX
+  git: 
+    repo: "{{ awx.repo_url }}"
+    dest: "{{ awx.repo_path }}"
+    clone: "yes"
+    update: "yes"
+
+- name: Download do repositorio AWX Pacotes
+  git:
+    repo: "{{ awx.logo_url }}"
+    dest: "{{ awx.logo_path }}"
+    clone: "yes"
+    update: "yes"
