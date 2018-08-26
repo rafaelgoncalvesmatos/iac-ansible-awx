@@ -1,5 +1,6 @@
 ---
 # tasks file for roles/docker
+# Atualizacao e configuracao do repositorio
 - name: Atualizacao do Sistema
   yum:
     name: "*"

@@ -1,5 +1,6 @@
 ---
 # defaults file for roles/docker
+# Variaveis utilizadas e mapeamento 
 docker:
   gpg_key: "https://download.docker.com/linux/centos/gpg"
   repo_url: "https://download.docker.com/linux/centos/docker-ce.repo"
