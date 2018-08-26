@@ -1,3 +1,6 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 API_VERSAO = "2"
 BOX_NOME = "centos/7"
 BOX_IP = "192.168.56.10"
@@ -5,9 +8,9 @@ DOMAIN = "pensandoemlinux.com"
 CHAVE_PRIVADA = "~/.ssh/id_rsa"
 CHAVE_PUBLICA = "~/.ssh/id_rsa.pub"
 
-Vagrant.configure[API_VERSAO] do |config|
+Vagrant.configure(API_VERSAO) do |config|
     config.vm.box = BOX_NOME
-    config.vm.network "private_network", BOX_IP
+    config.vm.network "private_network", ip:BOX_IP
     config.vm.host_name = BOX_IP + '.' + DOMAIN
     config.ssh.insert_key = false
     config.ssh.private_key = [CHAVE_PRIVADA, "~/.vagrant.d/insecure_private_key"]
