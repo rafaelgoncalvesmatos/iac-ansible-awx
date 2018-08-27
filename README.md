@@ -10,6 +10,6 @@ $ cd iac-ansible-awx
 
 $ vagrant up 
 
-$ ansible -i inventory site.yml
+$ ansible-playbook -i inventory site.yml
 
 Obrigado.
