@@ -1,4 +1,4 @@
-box ansible_host=192.168.56.110
+box ansible_host=192.168.56.10
 
 [awx]
 box
