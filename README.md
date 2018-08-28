@@ -8,6 +8,10 @@ Clone o repositorio:
 
 $ git clone https://github.com/rafaelgoncalvesmatos/iac-ansible-awx
 
+Caso não esteja criada, crie seu par de chaves:
+
+$ ssh-keygen
+
 Entre no diretorio para execucao:
 
 $ cd iac-ansible-awx
