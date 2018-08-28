@@ -27,6 +27,11 @@
 - name: Download do repositorio AWX Pacotes
   git:
     repo: "{{ awx.logo_url }}"
-    dest: "{{ awx.logo_path }}"
+    dest: "{{ awx.repo_path }}"
     clone: "yes"
     update: "yes"
+
+- name: Instalacao AWX
+  command: "{{ awx.install_command }}"
+  args:
+    chdir: "{{ awx.repo_path }}installer"

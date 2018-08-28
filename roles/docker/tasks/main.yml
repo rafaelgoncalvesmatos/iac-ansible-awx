@@ -45,8 +45,3 @@
     name: "docker"
     state: "started"
     enabled: "yes"  
-
-- name: Instalacao AWX
-  command: "{{ awx.install_command }}"
-  args:
-    chdir: "{{ awx.repo_path }}installer"    

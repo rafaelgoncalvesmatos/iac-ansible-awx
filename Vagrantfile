@@ -13,16 +13,16 @@ Vagrant.configure(API_VERSAO) do |config|
     config.vm.network "private_network", ip:BOX_IP
     config.vm.host_name = BOX_IP + '.' + DOMAIN
     config.ssh.insert_key = false
-    config.ssh.private_key = [CHAVE_PRIVADA, "~/.vagrant.d/insecure_private_key"]
+    config.ssh.private_key_path = [CHAVE_PRIVADA, "~/.vagrant.d/insecure_private_key"]
     config.vm.provision "file", source: CHAVE_PUBLICA, destination: "~/.ssh/authorized_keys"
 
     config.vm.provider "virtualbox" do |v|
-        v.memory = "2024"
+        v.memory = "6024"
         v.cpus = "2"
     end
 
     config.vm.provider "vmware_fusion" do |v|
-        v.vmx["memsize"] = "2024"
+        v.vmx["memsize"] = "6024"
         v.vmx["numvcpus"] = "2"
     end
 end
