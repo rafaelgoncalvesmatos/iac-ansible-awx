@@ -26,4 +26,11 @@ $ ansible-playbook -i inventory site.yml
 
 O playbook pode ser utilizado no seu host atual ele sendo CentOS.
 
+Para o acesso:
+
+http://192.168.56.10
+
+user: admin
+pass: password
+
 Obrigado.
